@@ -1,64 +1,150 @@
 ---
 title: "Measuring Diplomatic Appeals"
-date: "`r Sys.Date()`"
+author:
+  - name: "Carl Huang"
+    url: http://carlhuang.com/
+    affiliation: University of Virginia
+date: "2017-02-17"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
 #output: html_notebook
 ---
 # Introduction
-For many, modern diplomatic exchange simply reflects an interdependent world. Compared to the 19th-century institutions where leaders sent diplomats to “lie for his country,” today’s consulates and embassies are filled by officers who spend more time assisting overseas citizens, interviewing visa applicants, and collecting local intellegence. A character in a 1960 novel expresses such a view: 
+In today's world, modern diplomatic exchange simply reflects the mundane interactions of an interdependent world. Compared to the Nineteenth Century when leaders sent diplomats abroad to “lie for his country,” today’s consulates and embassies are run by officers who spend more time assisting overseas citizens, interviewing visa applicants, and collecting local intelligence.^[A character in a 1960 novel expresses this view: “the Foreign Service has had its day - enjoyable while it lasted, no doubt, but over now. The privileged being of the future is the travel agent.” Mitford, Nancy. 1960. *Don’t Tell Alfred*. New York: Vintage Books, 2010, Print.] Similarly, diplomacy has fallen by the wayside as an important academic subject in political science. While we spend a lot of time talking about “soft power,” or the ability to convince and attract allies and adversaries without resorting to force or threats, we rarely tie this discussion to the diplomatic efforts policy makers actually use to foster it. 
 
-> The Foreign Service has had its day - enjoyable while it lasted, no doubt, but over now. The privileged being of the future is the travel agent.
-> *Don't Tell Alfred* (1960). 
+Diplomatic representation, however, is much more important than commonly perceived. When Obama decided to end the U.S.-Cuba antagonism, one key gesture was the reopening of the Embassy in Havana. Following independence, India sent a special delegation to Europe that recommended establishing representation in Nordic states – which had neither commercial nor colonial ties with India – to learn their diplomacy (Pant 2008). In both cases, diplomatic representation was a reflection of the appeal of an international partner. Diplomacy institutionalizes this appeal based on the belief that further exchange of commerce, people, and ideas will be beneficial to both the governments and the population.
 
-While partially true, diplomatic representation is much more important than commonly perceived. When Obama decided to end the U.S.-Cuba antagonism, for instance, one key gesture was the reopening of the Embassy in Havana. Following India’s independence, it sent a special delegation to Europe that recommended establishing representation in Nordic states – which had neither commercial nor colonial ties with India – to learn their ways of diplomacy. In both cases, diplomatic representation reflects a country’s recognition of the “diplomatic appeal” of its partner. Through institutionalizing an official relationship, a country recognize that its partner is ideologically agreeable,
-and that further exchange of commerce, people, and ideas will be beneficial to both the governments and the population.
+Since one cannot directly observe this diplomatic appeal or “soft power,” but only its implications on actual diplomatic activities, it is a latent variable the same way psychologists think about latent traits such as self-monitoring and intellectual capability. Due to this similarity, psychometrics has much to offer researchers in international politics who seek to unpack this difficult question. This is an important new direction that has the potential to reinvigorate a long-dormant area of political science.
 
+In political science, “diplomatic exchange” refers to the activity that a “receiving state” receives diplomatic mission from a “sending state.” As suggested in the previous example of U.S.-Cuban rapprochement, the opening of one state’s Embassy in a foreign state implies a positive development of their bilateral relationship. The Vienna Convention on Diplomatic Relations (1966) also states that in addition to “developing their economic, cultural and scientific relations,” the function of diplomatic missions is to “friendly relations between the sending State and the receiving State. While some scholars analyzed the exchange of three ordinal classes – ambassador, minister, and chargé d'affaires (Singer & Small 1966), recent work focuses mostly on the binary versions: whether a diplomatic exchange exist between two countries at all (see Neumayer 2008, Kinne 2014) or whether two countries exchange their ambassadors (Kinne 2014).^[One potential future avenue for research is to analyze whether a three-category approach indeed yields more information compared to a binary approach. ]
 
-If a measurement of diplomatic appeal can be built on diplomatic representation data, we can answer a number of interesting questions in world politics: 
+Despite earlier attempts in measuring a variety of concepts from the mentioned diplomatic exchange data, several methodological issues remain. One is the implicit assumption that diplomatic representations from all countries have the same weight – a country’s diplomatic appeal is the sum of the diplomatic exchange it receives – or have a set of weights that can be calculated through second-level factors such as the total diplomatic exchange each of the sending country. While the problem with the first claim is that an ambassador from a small country might have a different bearing on the receiving state compared to an ambassador from a powerful one, the logic of the second claim is also problematic. Even if two countries receive an identical number of exchange as receivers, it does not follow that both will also behave the same way as senders. Hungary and Venezuela both received 83 diplomatic exchange in 2005. However, the two countries have foreign policy preferences in forming diplomatic ties so different that it would be more appropriate to estimate their weights in other ways. I argue that because an IRT model takes how willing/able are a state to establish a diplomatic exchange (item difficulty) and to what extent its decision is related to the diplomatic appeal of the receiving state (item discrimination), it is possible to sidestep overly strong assumptions while still achieving reasonable performance.
 
-* How is a ranking of authority different from one of military power or economic size? 
+The second issue of the literature is the limited investigation between a measurement scale and state behaviors in actual contexts. Existing measurement projects using the diplomatic exchange data tend to focus on ranking and ordering states along a latent scale but not how easy or difficult for a particular state can achieve that rank. On the other hand, research that explains the binary outcome of diplomatic exchange through a list of covariates using logistic regressions tells us the average probability two countries have diplomatic exchange given a set of parameter values (see Neumayer 2008). However, it is unable to answer questions such as “given the receiving state A’s diplomatic appeal and sending state B’s preference in establishing diplomatic exchange, what is the probability that B will send a diplomatic mission to A?” Answering questions as such require a more meaningful scale that speaks to the characteristics of both the receiver and the sender. As will be shown, IRT is highly suitable for this purpose.^[Another advantage of IRT is that it can take into account the changes in trait level of the same person/state at different time point through “linking.”]
 
-We can also test the relationship between authority and state behavior:
+# Studying Diplomatic Appeals
 
-* Are countries with high diplomatic authority tend to be better conflict mediators, more reliable allies, and stronger guardians of international law? 
+The concept of interest in this article is the notion of “diplomatic appeal,” which refers to the latent characteristic of a country that makes other countries willing to invest, institutionalize, and maintain their international partnership in accordance with the established diplomatic norm.^[The term “diplomatic appeal” is mean to be different and more flexible compared to earlier research that use the same data to measure “status” or “international prestige.”]  While it is plausible to measure diplomatic appeal through alternative sources such as how states say about each other in their diplomatic statements, I argue that diplomatic exchange is especially revealing about a country’s diplomatic appeals because they are more costly. Establishing a diplomatic mission to represent the sending state in the receiving state has symbolic significance, but it also takes up significant time and financial resources from the sending country. Staffing it with qualified personnel also requires the investment in professional training in foreign language and bureaucratic capacity (Pant 2008, 55). Due to the constraints of budget and human resources, states need to be selective in where to invest. In this sense, diplomatic exchange is no less “rationally expressive” than other international commitments that have been intensively studied by political scientists in the past, such as signing and ratifying human rights treaties (see Simmons 2009).
 
-Given policy-makers’ interests in **soft power** and **public diplomacy**, it is surprising that political scientists rarely took advantage of the diplomatic representation data last two decades. 
+In this article, I use the 2005 diplomatic exchange data from the Correlates of War project (Bayer 2006) as an example and present an exploratory measurement of diplomatic appeals with a two-parameter IRT model (2PL).  The novelty of this project is the assumption that diplomatic exchange can be seen as the sending state’s recognition of the “diplomatic appeal” of the receiving state. In a psychometric context, each country can be seen both as a "person" whose latent diplomatic appeals are being evaluated and as an “item” that evaluates the diplomatic appeals of other states. In other words, one can conceptualize diplomatic exchange as a special case of peer-evaluation in which each state evaluates each other in terms of their diplomatic appeals. Table 1 demonstrates a sample from the data. Each unshaded cell represents whether a sending state (column name) has any diplomatic exchange with the receiving state (row name). A value of 0 indicates that coders cannot find evidence of any diplomatic exchange whereas 1 indicates that diplomatic exchange to some degree (ambassador, minister, chargé d'affaires, or others). Each of the diagonal element (shaded) represents whether a country has a diplomatic exchange with itself. For both theoretical and methodological reasons, I set all the values as 1.^[Two reasons lead to this decision. Conceptually, it is possible to think that each country would have a high approval of its diplomatic appeal. While it is possible to set U.S.'s exchange with herself as zero or missing, we might be throwing information away. Methodologically, doing this can also alleviate concerns of "perfect responses." In some IRT estimation, persons who score 1 or 0 in all the items can be dropped out from the estimation.]
 
-In this proposal, I argue that one reason 
+<img src='table1.png' style='margin:0 auto;'/>
 
+Analyzing the diplomatic exchange data with an IRT model yields several analytical benefits that make it more appropriate and powerful compared to alternative approaches. When estimating the diplomatic appeal of receiving state, IRT allows us to take sending-state-heterogeneity into account. If one conceptualizes the diplomatic exchange network as a world in which states judge each other’s appeals, some countries will be “harsher judges” than others. For sending states with limited resources, establishing diplomatic missions abroad can be a difficult decision unless there is a strong motivation to improve the relationship with the receiving state. In addition to the resource, foreign policy preferences can also make a country more or less selective in forming diplomatic ties. In a two-parameter IRT, these differences can be captured by the item difficulty parameter, which is defined by the latent trait level required for a person to have a fifty percent chance of succeeding on an item.
+Another dimension of sending-state-heterogeneity is the correlation between a sending state’s decision to establish diplomatic exchange and a receiving state’s diplomatic appeals. Among sending states with a high item difficulty (i.e. imposing a higher threshold on a state’s diplomatic appeals to have a fifty percent chance of receiving a diplomatic exchange from it), some of them weigh the receiving state’s diplomatic appeals more importantly than others and are therefore more able to “discriminate” the states they evaluate according to the latent variable of interest. In IRT, this difference across item determines the slope of an Item Characteristic Curve (ICC) and can be modeled as a discrimination parameter in a 2PL model. In the following sections, I will introduce the IRT model used in this research, present a novel ranking of diplomatic appeals estimated by IRT, and discuss the implications of several goodness-of-fit statistics.
 
-```{r}
-plot(cars)
-```
+# Model & Research Design
+From the Correlates of War diplomatic exchange data (v2006.1), I transformed observations in 2005 into a 192 by192 matrix, with each row as a receiving state and each column as a sending state. According to the codebook, most of the data in this period are collected from the Europa World Year Book series and ministry of foreign affairs of various countries. The item response of interest is the binary indicator of whether a diplomatic exchange exists between the receiving and sending state. The response is constructed according to the coding criteria: 0 = neither side was represented on the other side; 1 = at least one side was represented on the other side. Figure 1 is a visual representation of the data with states ordered by their COW Code. 
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+<img src='figure1.png' style='margin:0 auto;' width='70%'/>
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
+The Two-Parameter IRT model (2PL) was used to analyze the diplomatic responses of 192 items (sending state) on 192 persons (receiving state) in R with the package `ltm` (Rizopoulos 2015), which adopts a Marginal Maximum Likelihood approach in parameter estimation. In the context of our case, the equation for 2PL is as follows:
 
-# Literature Review
+$$
+Pr(x_{rs}|\alpha_s,\beta_s,\theta_r) = \frac{esp(\alpha_s(\theta_r-\beta_s))}{1+ exp(\alpha_s(|\theta_r - \beta_s ))}
+$$
+where $x_rs$ indicates a diplomatic exchange from sending state $s$ to receiving state $r$. Item parameters $\alpha_s$ and $\beta_s$ represent the discrimination and difficulty parameter of $s$. The person parameter $\theta_r$ is our goal of measurement: the diplomatic appeal of $r$. 
 
-# Data on Diplomatic Exchange
-http://correlatesofwar.org/data-sets/diplomatic-exchange
+## Results
 
-## COW Data (1817-2005)
+### Ranking of Diplomatic Appeals (Persons Location)
 
-# An IRT Approach to Diplomatic Appeals
+In Figure 2, I plot the estimated θ_r on the y-axis against the total number of diplomatic exchange on the x-axis to compare an IRT-based and the conventional approach. While the two measurements are positively correlated, there are some notable differences. First, from the right, while the relative positions of the U.S. and Belgium remains the same, the locations of France, United Kingdoms, China, and Germany are different on the two axes. Although U.K., France, and China are roughly equal in terms of diplomatic exchange, the IRT-estimated diplomatic appeals of U.K. and France are higher than that of China. Similarly, despite having fewer diplomatic exchanges than China, Germany’s higher vertical location suggests that it was “punching above its weight.” The same thing can also be said for Canada against Japan and Austria against India. On the other hand, some countries are underachievers in their IRT-estimated diplomatic appeals compared to their total exchange count. Two examples are Libya and North Korea. Libya had the same number of exchange as Sweden, but its diplomatic appeal is much lower. Compared to Chile and Singapore, North Korea's diplomatic appeals are also much lower despite having more diplomatic exchange.
 
+<img src='figure2.png' style='margin:0 auto;'/>
 
+### Item Difficulty
 
+Figure 3 presents the *item location* of each sending state. For states that have a large number of diplomatic exchange such as the United States, the estimated item difficulties are quite low and below zero. While this can be counter-intuitive, it is not necessarily inconsistent with the theoretical logic: since many diplomatically active states have large and more developed domestic economies, their resource abundance and wide spread economic interests could make their decision in sending diplomatic missions less selective and hence reveal less information about the diplomatic appeals of a receiving state. Indeed, on the right side of Figure 3, the country with highest item difficulty is also the smallest one. Compared to regional powers such as U.S., China, France, and Germany, Belgium is estimated to be more selective of their diplomatic partners and have a higher difficulty compared to the local mean.
 
+<img src='figure3.png' style='margin:0 auto;'/>
 
+By contrast, the fact that many states with fewer diplomatic exchanges are smaller in domestic economy and population can partially explain their higher item difficulties due to the need to be more selective. It is worth noting, however, that a separate group exists on the bottom-left of the graph. Despite their small size, Kiribati, Nauru, Tuvalu, Vanuatu, and Taiwan are even less selective compared to states on the right. The particularities of this group will be made clear when we look at item discrimination and the ICCs of these states in the next section.
 
+### Item Discrimination 
+While states with more diplomatic exchange tend to have smaller item difficulties, they are no less capable of discriminating their potential partners based on diplomatic appeals. As shown in Figure 4, all states on the right have positive discrimination parameters. As a sending state, Germany has the highest discrimination value, which is followed by Austria and Switzerland. On the left side of Figure 4, we once again observe the curious pattern of Tuvalu, Vanuatu, Taiwan, and Kiribati. The negative discrimination implies that they are more likely to establish exchange with countries that have low diplomatic appeals. I demonstrate this pattern visually with a selected sample of item characteristic curves (ICC).  As shown in Figure 5, when a receiving state’s diplomatic appeals move from low to high, the probability of diplomatic exchange also increases. This is not the case in Figure 6. For Kiribati, Nauru, Taiwan, Tuvalu, and Vanuatu, the higher their potential partner’s diplomatic appeal, the lower the probability of diplomatic exchange. While this result is puzzling at first glance, one plausible explanation can be found in the war over diplomatic recognition between Taiwan and the People’s Republic of China (PRC). Since Taiwan lost its right to represent China at the United Nations in 1973 to the PRC, most of its former diplomatic allies switched diplomatic recognitions to China and cut ties with Taiwan. As a result, Taiwan has long sought to establish diplomatic relationship with countries who are willing to offer “status for sale” (Rich 2009). Kiribati, Tuvalu, Nauru, Vanuatu are all Pacific island states, but they are all members of a small group of Taiwan’s current or former diplomatic allies.
 
+Table: Table 2. Item Fit Statistics, Diplomatic Exchange Data (2005)
 
+|     Item fit statistics                                           |     Count           |
+|-------------------------------------------------------------------|---------------------|
+|     Items fit the model at 95%   level (p-value > 0.05)           |     164 (85.4 %)    |
+|     Items do not fit the model   at 95% level (p-value < 0.05)    |      28 (14.5 %)    |
 
+I use the statistics developed by Levine and Rubin (1979) to evaluate the fitness of items. In the total of 192 items, about 15% (28 items) have response patterns that are different compared to a dataset simulated with estimated parameters at the 95% level of statistical significance. While this indicates that the 28 items might have a low item fit, given the fact that items and persons are not survey questions and respondents but sovereign states in the actual international arena, the proportion is lower than expected.
 
+Table: Table 3. Mis-fitted Items (2005)
 
+|      Country Name                              |      Difficulty     |      Discrimination     |      Total Diplomatic Exchange     |
+|------------------------------------------------|--------------------:|------------------------:|-----------------------------------:|
+|     The United   States of America             |            -2.04    |                 2.22    |                             177    |
+|     Belgium                                    |            -0.48    |                 3.39    |                             167    |
+|     Netherlands                                |            -0.72    |                 4.14    |                             104    |
+|     Brazil                                     |            -0.60    |                 2.23    |                             103    |
+|     Iran   (Islamic Republic of)               |            -0.60    |                 2.27    |                              95    |
+|     Australia                                  |             0.10    |                 1.10    |                              91    |
+|     Venezuela,   the Bolivarian Republic of    |            -0.19    |                 1.29    |                              83    |
+|     Morocco                                    |            -0.22    |                 2.13    |                              83    |
+|     Portugal                                   |            -0.13    |                 2.41    |                              79    |
+|     Kazakhstan                                 |             1.28    |                 1.15    |                              45    |
+|     New   Zealand                              |             1.29    |                 0.91    |                              41    |
+|     Somalia                                    |             4.48    |                 0.45    |                              23    |
+|     Burundi                                    |             2.34    |                 1.18    |                              17    |
+|     Gambia   (The Islamic Republic of the)     |             4.67    |                 0.55    |                              14    |
+|     Barbados                                   |             4.29    |                 0.97    |                               9    |
+|     Grenada                                    |             4.34    |                 0.95    |                               7    |
+|     Saint   Lucia                              |             4.34    |                 1.07    |                               7    |
+|     Antigua   and Barbuda                      |             3.48    |                 1.33    |                               7    |
+|     Saint   Kitts and Nevis                    |             4.61    |                 0.86    |                               7    |
+|     Andorra                                    |             3.71    |                 1.15    |                               7    |
+|     Dominica                                   |             3.90    |                 1.17    |                               6    |
+|     Saint   Vincent and the Grenadines         |             4.38    |                 1.05    |                               6    |
+|     Bahamas                                    |             5.74    |                 0.68    |                               5    |
+|     Liechtenstein                              |             4.58    |                 0.87    |                               5    |
+|     Tonga                                      |             5.86    |                 0.81    |                               5    |
+|     Micronesia   (The Federated States of)     |             7.45    |                 0.53    |                               5    |
+|     Comoros                                    |             6.00    |                 0.78    |                               4    |
 
+It is also possible to evaluate the fitness of receiving states (person fit) using statistics proposed by Drasgow et al. (1985). In a comparison between the IRT model’s expectation given a receiving state’s diplomatic appeals and what that receiving state actually received. There are five that demonstrate a low person fit according to the criteria provided by Embretson and Reise (2000).
 
+Table: Table 4. Mis-fitted Persons (2005)
 
+|      Country    Name                     |      Person Fit (Lz)     |      Theta     |      Total Diplomatic Exchange     |
+|------------------------------------------|--------------------------|----------------|------------------------------------|
+|     Kiribati                             |     -3.06                |     -3.03      |     3                              |
+|     Venezuela, Bolivarian Republic of    |     -3.43                |     0.28       |     83                             |
+|     Eritrea                              |     -4.79                |     -1.34      |     26                             |
+|     Pakistan                             |     -6.22                |     0.68       |     83                             |
+|     El Salvador                          |     -7.31                |     -0.68      |     30                             |
+
+# Conclusion
+
+Scholars used to study international diplomacy, but once we reached a point where most states had diplomatic relations with all other states, we lost the ability to use this dimension as a simple indicator of diplomatic appeal. Rather than digging deeper, the discipline started to neglect diplomacy as an indicator of international conflict and cooperation altogether. In this article, I present a preliminary exploration of how an Item Response Theory (IRT) approach can improve our understanding of international diplomacy. Under the assumption that sovereign states evaluate each other’s diplomatic appeals as senders (items) and other’s evaluation as receivers (persons) in the global network of diplomatic exchange, it is possible to measure a country’s latent diplomatic appeals based on the difficulty and discrimination parameters of each sending state. In other words, an IRT measurement avoids the approach of adding every diplomatic exchange together and weight the importance of each potential exchange according to how selective and discriminatory a sending state is when deciding whether to institutionalize diplomatic relationship with a foreign country.
+
+The results show that IRT has a lot to offer in measuring diplomatic appeals. It is possible to show countries who are punching beyond their weights such as Germany, Canada, and Austria and states that are low-achieving, such as Libya and North Korea. While IRT shows that smaller states tend to be more selective in partner selection due to their limited resources, it also detects the curious patterns of certain Pacific island states in the battle over diplomatic recognition between Taiwan and China. Because Taiwan could typically only form a partnership with low diplomatic appeal countries who are willing to offer their "status for sale," the discrimination parameters of Taiwan and her allies are mostly negative. The results also reveal avenues for future research. While research on life-span development in psychometrics can use “linking” and “anchoring” to allow IRT estimate latent characteristics across multiple time frames (Erbacher et al. 2013), the items are relatively stable (e.g. they are typically the same questions). By contrast, even if the identities of receiving states are the same across time, their foreign policy preferences are unlikely to remain constant. U.K.’s attitudes towards European states, for instance, can change when a pro-Brexit coalition come into power. A successful identification of a linking and anchoring strategy can further increase the contribution of an IRT approach to study diplomacy and allow more empirical applications in the future.
+
+# Reference
+Bayer, R. (2006) “Diplomatic Exchange Data set, v2006.1.” Online: http://correlatesofwar.org
+
+Drasgow, F., Levine, M. and Williams, E. (1985) “Appropriateness Measurement with Polychotomous Item Response Models and Standardized Indices.” *British Journal of Mathematical and Statistical Psychology*, 38, 67–86.
+
+Embretson, Susan E. and Steven P. Reise. (2000) *Item Response Theory for Psychologists*. Mahwah, NJ: Lawrence Erlbaum Associates, Inc., Publishers.
+
+Erbacher, Monica K., Karen M. Schmidt, Steven M. Boker, and Cindy S. Bergeman. (2013) “Measuring Positive and Negative Affect in Older Adults Over 56 Days: Comparing Trait Level Scoring Methods Using the Partial Credit Model,” *Journal of Applied Measurement*, 13(2), 146-164.
+
+Neumayer, E. (2008) “Distance, Power and Ideology: Diplomatic Representation in a World of Nation-States.” *Area*, Vol. 40, No. 2, pp. 228–236.
+
+Kinne, B.J. (2014) “Dependent Diplomacy: Signaling, Strategy, and Prestige in the Diplomatic Network.” *International Studies Quarterly*, Vol. 58, pp. 247–259.
+
+Levine, M. and Rubin, D. (1979) “Measuring the Appropriateness of Multiple-Choice Test Scores.” *Journal of Educational Statistics*, 4, 269–290.
+
+Pant, S. (2008) *History of India’s Diplomatic Missions: Formative Years*. Delhi: Shakti Book House.
+
+Rich, T.S. (2009) “Status for Sale: Taiwan and the Competition for Diplomatic Recognition.” *Issues & Studies*, Vol 45, No. 4, pp. 159-188.
+Singer, D., and Small, M. (1966) “The Composition and Status Ordering of the International System: 1815-1940.” *World Politics*, Vol. 18, No. 2, pp. 236-282. 
+
+Simmons, B.A. (2009) *Mobilizing for Human Rights: International Law in Domestic Politics.* Combridge: Cambridge University Press.
 
 
 
