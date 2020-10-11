@@ -1,7 +1,7 @@
 <img src="irt.png" width="80%"/>
 
 ## Project Available in Bookdown Format!
-* Please check https://carlpch.github.io/Estimating-Soft-power/_book/ for more information.
+* Please check https://carlpch.github.io/Estimating-Soft-Power-Bookdown/_book/ for more information.
 
 ## Summary
 * I implemented an IRT model on global embassy data to build a "soft power" index that measures countries’ diplomatic appeal.
